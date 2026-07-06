@@ -1,36 +1,26 @@
-# tbo-demo
+# TBO Treuhand — Demo-Landingpage
 
-Demo landing page for **TBO Treuhand AG** (Zürich) — a static single-page site
-hosted on GitHub Pages.
+Mehrsprachige Demo-Landingpage (DE · FR · IT · EN) für TBO Treuhand AG.
+Live: **https://tbo.arvut.ch** · Vorschau (GitHub Pages): **https://arvut.github.io/tbo-demo/**
 
-- **Live:** https://arvut.github.io/tbo-demo/
-- **Language:** German (Swiss Hochdeutsch)
-- **Stack:** plain static HTML/CSS, no build step. Fonts and images are bundled
-  in `assets/` so the page is fully self-contained.
+## Struktur
 
-## Structure
+- `index.src.html` — **DE-Master (Quelle der Wahrheit).** Hier den Inhalt bearbeiten.
+- `de/ fr/ it/ en/ ru/` — generierte Sprachversionen (NICHT von Hand bearbeiten, werden überschrieben).
+- `index.html` — Root-Weiterleitung auf `de/`.
+- `assets/` — Bilder & Schriften (gemeinsam für alle Sprachen, relativ `../assets/`).
+- `build.py` — erzeugt die Sprachordner aus `index.src.html` + Übersetzungen.
 
-Everything lives in `index.html` with inline styles. Design tokens are defined
-in the `:root` block (`--navy`, `--soft`, `--band`, `--radius`, …). Assets:
+## Bearbeiten & neu bauen
 
-- `assets/fonts/` — bundled web fonts (woff2).
-- `assets/img/` — images. When replacing an image, bump the `?v=N` query in the
-  HTML so the CDN serves the new file.
+1. Design/Text am DE-Master `index.src.html` ändern.
+2. Für Übersetzungen: neue Texte an das Übersetzungsteam geben (Schlüsselschema wie bisher).
+3. `python3 build.py` ausführen → regeneriert `de/ fr/ it/ en/ ru/` + Root-Redirect.
+4. Commit + Push → GitHub Pages baut automatisch neu.
 
-## Local preview
+Nur den DE-Master direkt ändern? Dann `de/index.html` wird beim nächsten `build.py` überschrieben —
+immer `index.src.html` pflegen.
 
-No toolchain required — open `index.html` in a browser, or serve the folder:
+## Sprachumschalter
 
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
-
-## Deploy
-
-Push to `main` — GitHub Actions (`.github/workflows/pages.yml`) publishes to
-GitHub Pages automatically. Verify at https://arvut.github.io/tbo-demo/.
-
-## Contact
-
-Maintained by Arvut. Questions → Alex (al@arvut.ch).
+DE / FR / IT / EN sichtbar. RU wird gebaut, ist aber im Umschalter versteckt (Reserve).
