@@ -60,7 +60,7 @@ def markup_map(lang):
       "Eine eigene Buchhaltung ist nicht nur der Lohn. Mit Sozialabgaben und Arbeitsplatz kostet ein Buchhalter in Zürich über <b style=\"color:var(--ink);\">CHF 110'000</b> pro Jahr, ein Team mehrere Hunderttausend. Mit TBO erhalten Sie mehr — und zahlen deutlich weniger.":
         re.sub(r"CHF 110'000", "<b style=\"color:var(--ink);\">CHF 110'000</b>", T[L]['preise.lead']),
       # preise fussnote (<b>pilot</b> + <a>link</a>) — link label = cta text
-      "Der genaue Preis wird nach einer kurzen Analyse festgelegt — er hängt vom Buchungsvolumen und der Anzahl Gesellschaften ab. Der Einstieg ist über einen dreimonatigen Piloten zu <b style=\"color:var(--ink);\">CHF 1'000 pro Mandat</b> möglich (bei Fortsetzung anrechenbar). <a href=\"#kontakt\" class=\"link-u\">Offerte anfordern</a>.":
+      "Der genaue Preis wird nach einer kurzen Analyse festgelegt — er hängt vom Buchungsvolumen und der Anzahl Gesellschaften ab. Der Einstieg ist über eine dreimonatige Pilotphase zu <b style=\"color:var(--ink);\">CHF 1'000 pro Mandat</b> möglich (bei Fortsetzung anrechenbar). <a href=\"#kontakt\" class=\"link-u\">Offerte anfordern</a>.":
         fussnote_html(L),
       # banner h2 (<br>)
       'Konzentrieren Sie sich auf Ihr Geschäft.<br>Die Zahlen sind unsere Sache.':
