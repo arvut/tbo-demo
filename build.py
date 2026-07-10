@@ -25,12 +25,12 @@ def parse_trans(path):
 T = parse_trans(TRANS)   # keys: EN/FR/IT/RU
 
 # ---- markup fragments (exact HTML in DE master) → per-lang HTML ----
-# leitsatz zitat text (canon, verbatim per lang) — span wraps the CFO phrase
+# leitsatz zitat text (canon 08.07: «und nicht nur für kleine Unternehmen», verbatim per lang) — span wraps the CFO phrase
 LEIT = {
- 'fr': ('La fiduciaire traditionnelle est le comptable partagé des PME. La fiduciaire du réseau Arvut est aussi leur ', 'directeur financier externe', ' — pour les PME comme pour les entreprises plus grandes.'),
- 'it': ('La fiduciaria tradizionale è il contabile condiviso delle PMI. La fiduciaria della rete Arvut è anche il loro ', 'CFO esterno', ' — per le PMI come per le aziende più strutturate.'),
- 'en': ('A traditional fiduciary is a shared accountant for SMEs. A fiduciary in the Arvut network is also a ', 'fractional CFO', ' — for SMEs and larger companies alike.'),
- 'ru': ('Традиционная фидуциария — это общий бухгалтер для SME. Фидуциария сети Arvut — ещё и ', 'внешний финансовый директор, fractional CFO', ', — причём не только для малого бизнеса, но и для крупных компаний.'),
+ 'fr': ('Un fiduciaire traditionnel est le comptable partagé des PME. Un fiduciaire du réseau Arvut est aussi leur ', 'directeur financier externe', ' — et pas seulement pour les petites entreprises.'),
+ 'it': ('Un fiduciario tradizionale è il contabile condiviso delle PMI. Un fiduciario della rete Arvut è anche il loro ', 'CFO esterno', ' — e non solo per le piccole imprese.'),
+ 'en': ('A traditional fiduciary is the shared accountant of SMEs. A fiduciary in the Arvut network is also their ', 'fractional CFO', ' — and not only for small businesses.'),
+ 'ru': ('Традиционная фидуциария — общий бухгалтер для малого и среднего бизнеса. Фидуциария сети Arvut — ещё и ', 'внешний финансовый директор', ', и не только для малого бизнеса.'),
 }
 # hero h1: "... — <span>in Echtzeit</span>"  (prefix, span-part)
 H1 = {
@@ -54,7 +54,7 @@ def markup_map(lang):
       "Vollkosten pro Mitarbeitenden — ab <b style=\"color:var(--ink);\">CHF&nbsp;110'000</b> pro Jahr":
         re.sub(r"CHF 110'000", "<b style=\"color:var(--ink);\">CHF&nbsp;110'000</b>", T[L]['vergleich.col1_li2']),
       # leitsatz (span on CFO phrase)
-      'Der klassische Treuhänder ist der geteilte Buchhalter der KMU. Der Treuhänder im Arvut-Netzwerk ist zusätzlich ihr <span style="color:var(--navy-2);">externer CFO</span> — für KMU wie für grössere Unternehmen.':
+      'Der klassische Treuhänder ist der geteilte Buchhalter der KMU. Der Treuhänder im Arvut-Netzwerk ist zusätzlich ihr <span style="color:var(--navy-2);">externer CFO</span> — und nicht nur für kleine Unternehmen.':
         f'{lt[0]}<span style="color:var(--navy-2);">{lt[1]}</span>{lt[2]}',
       # preise lead (<b>CHF 110'000</b>)
       "Eine eigene Buchhaltung ist nicht nur der Lohn. Mit Sozialabgaben und Arbeitsplatz kostet ein Buchhalter in Zürich über <b style=\"color:var(--ink);\">CHF 110'000</b> pro Jahr, ein Team mehrere Hunderttausend. Mit TBO erhalten Sie mehr — und zahlen deutlich weniger.":
